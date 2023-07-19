@@ -1,0 +1,6 @@
+﻿using BulkyBook_Utility;
+using BulkyBook_Web.Models;
+using BulkyBook_Web.Models.Dto;
+using BulkyBook_Web.Service.IService;
+
+namespace BulkyBook_Web.Service{    public class AuthService : BaseService, IAuthService    {        private readonly IHttpClientFactory _clientFactory;        private string categoryUrl;        public AuthService(IHttpClientFactory clientFactory, IConfiguration configuration) : base(clientFactory)        {            _clientFactory = clientFactory;            categoryUrl = configuration.GetValue<string>("ServiceUrls:CategoryAPI");        }        public Task<T> LoginAsync<T>(LoginRequestDTO obj)        {            return SendAsync<T>(new APIRequest()            {                ApiType = SD.ApiType.POST,                Data = obj,                Url = categoryUrl + "/api/v1/UsersAuth/login"            });        }        public Task<T> RegisterAsync<T>(RegisterationRequestDTO obj)        {            return SendAsync<T>(new APIRequest()            {                ApiType = SD.ApiType.POST,                Data = obj,                Url = categoryUrl + "/api/v1/UsersAuth/register"            });        }    }}

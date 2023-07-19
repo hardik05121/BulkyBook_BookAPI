@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BulkyBook_Web.Models.Dto.ProductDTO>
+<br />
+<div class="container p-4 border">
+	<div class="row pb-2">
+		<div class="col">
+			<h1 class="text-primary">Product List</h1>
+		</div>
+		<div class="col text-end pt-1">
+			<a asp-controller="Product" asp-action="CreateProduct" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i> Create New Product</a>
+		</div>
+	</div>
+
+	<table class="table">
+		<thead>
+			<tr>
+
+				<th>
+					Title
+				</th>
+				<th>
+					Description
+				</th>
+				<th>
+					ISBN
+				</th>
+				<th>
+					Author
+				</th>
+				<th>
+					ListPrice
+				</th>
+				<th>
+					Category Name
+				</th>
+
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+
+					<td>@item.Title</td>
+					<td>@item.Description</td>
+					<td>@item.ISBN</td>
+					<td>@item.Author</td>
+					<td>@item.ListPrice</td>
+					<td>@item.Category.Name</td>
+
+					<td>
+						<a asp-controller="Product" asp-action="UpdateProduct" asp-route-id="@item.Id" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+						<a asp-controller="Product" asp-action="DeleteProduct" asp-route-id="@item.Id" class="btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+</div>

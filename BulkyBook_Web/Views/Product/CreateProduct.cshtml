@@ -1,0 +1,101 @@
+﻿@model BulkyBook_Web.Models.VM.ProductCreateVM
+
+<form asp-action="CreateProduct">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Create Product</h1>
+        <hr />
+
+        <div class="row">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="Product.Title" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Product.Title" class="form-control" />
+                <span asp-validation-for="Product.Title" class="text-danger"></span>
+            </div>
+
+            <div class="col-2">
+                <label asp-for="Product.CategoryId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <select asp-for="Product.CategoryId" class="form-select" asp-items="@Model.CategoryList">
+                    <option disabled selected>--Select Category--</option>
+                </select>
+                <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Product.Description" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="Product.Description" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Product.Description" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Product.ISBN" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="Product.ISBN" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Product.ISBN" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Product.Author" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="Product.Author" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Product.Author" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Product.ListPrice" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="Product.ListPrice" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Product.ListPrice" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Product.Price" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="Product.Price" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Product.Price50" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="Product.Price50" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Product.Price50" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Product.Price100" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="Product.Price100" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Product.Price100" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Product.ImageUrl" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Product.ImageUrl" class="form-control" />
+                <span asp-validation-for="Product.ImageUrl" class="text-danger"></span>
+            </div>
+
+            <div class="col-5 offset-2">
+                <a asp-action="IndexProduct" asp-controller="Product" class="btn-primary btn form-control ">Back to List</a>
+            </div>
+            <div class="col-5">
+                <input type="submit" value="Create" class="btn btn-success form-control" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
